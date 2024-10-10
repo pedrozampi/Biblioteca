@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Biblioteca</a>
+            <ul class="nav-list">
+                <li><a href="/books">Livros</a></li>
+                <li>Autores</li>
+                <li><a href="/adm/registerbook">Sign in</a></li>
+                <li>Sobre</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Books</h1>
+        <div class="bookList"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Resume</th>
+                    <th>Release Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.resume}"></td>
+                    <td th:text="${book.releaseDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
