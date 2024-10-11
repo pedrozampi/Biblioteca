@@ -1,3 +1,13 @@
+@media screen and (max-width: 768px){
+    .bookCard{
+        width: 100vw !important;
+    }
+    .bookCard .dates{
+        font-size: 1px;
+    }
+
+}
+
 .registerform{
     background-color: #FEFAE0
 }
@@ -22,7 +32,8 @@
 }
     .bookCard img{
         float: left;
-        position: fixed;
+        position: sticky;
+        top: 0;
     }
     .bookCard h3{
         border-left: 10px;
@@ -40,6 +51,9 @@
     }
     .bookCard #btnBook{
         float: right;
+    }
+    .bookCard .dates{
+        display: inline;
     }
 
 .flexbook{

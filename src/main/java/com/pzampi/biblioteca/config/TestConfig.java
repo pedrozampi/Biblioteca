@@ -9,8 +9,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.pzampi.biblioteca.models.Author;
 import com.pzampi.biblioteca.models.Book;
-import com.pzampi.biblioteca.repositories.BookRepositoy;
+import com.pzampi.biblioteca.repositories.AuthorRepository;
+import com.pzampi.biblioteca.repositories.BookRepository;
 import com.pzampi.biblioteca.services.BookService;
 
 @Configuration
@@ -18,7 +20,10 @@ import com.pzampi.biblioteca.services.BookService;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private BookRepositoy bookRepositoy;
+    private BookRepository bookRepositoy;
+
+    @Autowired
+    private AuthorRepository authorRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -33,6 +38,12 @@ public class TestConfig implements CommandLineRunner {
                 "A UML - Unified Modeling Language ou Linguagem de Modelagem Unificada - é uma linguagem utilizada para modelar softwares baseados no paradigma de orientação a objetos, aplicada principalmente durante as fases de análise de requisitos e projeto de software. Essa linguagem consagrou-se como a linguagem-padrão de modelagem adotada internacionalmente pela indústria de Engenharia de Software, havendo um amplo mercado para profissionais que a dominem. Este livro procura ensinar ao leitor, por meio de exemplos práticos, como modelar softwares por meio da UML. A linguagem é ensinada mediante a apresentação de seus muitos diagramas, detalhando o propósito e a aplicação de cada um deles, bem como os elementos que os compõem, suas funções e como podem ser aplicados. A obra enfatiza ainda a importância da UML para a Engenharia de Software, além de abordar o paradigma de orientação a objetos, um conceito imprescindível para a compreensão correta da linguagem. Além disso, o livro demonstra também como mapear classes em tabelas de banco de dados relacionais, enfocando a questão de persistência. A obra contém diversos estudos de caso modelados como exemplos ao longo dos capítulos, além de um estudo de caso maior no final do livro, em que um sistema é analisado e modelado, com a ilustração completa de todos os diagramas referentes ao software.");
 
         bookRepositoy.saveAll(Arrays.asList(b1,b2,b3));
+
+
+
+        Author a1 = new Author(null, "Fiódor Dostoievski", "Russia", "Russo", LocalDate.parse("10/03/1870",fmt), LocalDate.parse("31/12/1910",fmt), "Era meio locão");
+
+        authorRepository.saveAll(Arrays.asList(a1));
     
             }
 

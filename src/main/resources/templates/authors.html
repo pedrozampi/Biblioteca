@@ -22,21 +22,24 @@
         </nav>
     </header>
     <main>
-        <div class="introduction">
-            <h1>Books</h1>
+       <div class="introduction">
+            <h1>Authors</h1>
         </div>
         <div class="flexbook">
-            <div class="bookCard" th:each="book : ${books}">
+            <div class="bookCard" th:each="author : ${authors}">
                 <img src="https://picsum.photos/140" alt="wadaw">
                 <div class="content">
                     <div class="header-text">
-                        <h3 th:text="${book.title}">Title</h3>
-                        <a th:href="@{/book/{id}(id=${book.id})}" id="btnBook">Acessar</a>
-                        <a href="" th:text="${book.author}">Author</a>
-                        <p th:text="${book.releaseDate}">releaseDate</p>
+                        <h3 th:text="${author.name}">Title</h3>
+                        <a th:href="@{/author/{id}(id=${author.id})}" id="btnBook">Acessar</a>
+                        <p th:text="${author.bornIn}">releaseDate</p>
+                        <p th:text="${author.language}">releaseDate</p>
+                        <p class="dates" th:text="${author.birthDate}">releaseDate</p>
+                        <p class="dates"> - </p>
+                        <p class="dates" th:text="${author.deathDate}">releaseDate</p>
                     </div>
                     <div class="resume">
-                        <p th:text="${book.resume}" class="resume">Resume</p>
+                        <p th:text="${author.biography}" class="resume">Resume</p>
                     </div>
                 </div>
             </div>

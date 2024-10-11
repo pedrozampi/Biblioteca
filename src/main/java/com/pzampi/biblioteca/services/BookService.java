@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pzampi.biblioteca.models.Book;
-import com.pzampi.biblioteca.repositories.BookRepositoy;
+import com.pzampi.biblioteca.repositories.BookRepository;
 
 @Service
 public class BookService implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Autowired
-    private BookRepositoy bookRepositoy;
+    private BookRepository bookRepositoy;
 
     public List<Book> findAll(){
         List<Book> list = bookRepositoy.findAll();
