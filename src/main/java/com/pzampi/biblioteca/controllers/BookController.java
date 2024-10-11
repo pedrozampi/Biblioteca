@@ -45,4 +45,9 @@ public class BookController {
         return "books";
     }
 
+    @GetMapping("/book/{id}")
+    public String getBook(){
+        return "book";
+    }
+
 }
