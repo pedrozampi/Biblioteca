@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.pzampi.biblioteca.models.Author;
+import com.pzampi.biblioteca.models.Book;
 import com.pzampi.biblioteca.services.AuthorService;
 
 @Controller
@@ -21,8 +22,8 @@ public class AuthorController implements Serializable{
 
     @GetMapping("/authors")
     public String listAll(Model model){
-        List<Author> list = authorService.findAll();
-        model.addAttribute("authors", list);
+        Iterable<Author> autrs = authorService.findAll();
+        model.addAttribute("authors", autrs);
         return "authors";
     }
 }

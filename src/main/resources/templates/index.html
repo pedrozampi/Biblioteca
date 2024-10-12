@@ -9,18 +9,11 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="" class="logo">Biblioteca</a>
-            <ul class="nav-list">
-                <li><a href="/books">Livros</a></li>
-                <li><a href="/authors">Authors</a></li>
-                <li><a href="/adm/registerbook">Sign in</a></li>
-                <li>Sobre</li>
-            </ul>
+        <nav th:replace="~{layouts/nav :: nav}">
         </nav>
     </header>
     <main>
-       
+       <div class="" th:replace="layouts/nav :: cabecalho"></div>
     </main>
     <footer></footer>
 </body>

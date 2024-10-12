@@ -11,19 +11,13 @@
 
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo">Biblioteca</a>
-            <ul class="nav-list">
-                <li><a href="/books">Livros</a></li>
-                <li>Autores</li>
-                <li><a href="/adm/registerbook">Sign in</a></li>
-                <li>Sobre</li>
-            </ul>
+        <nav th:replace="~{layouts/nav :: nav}">
         </nav>
     </header>
     <main>
        <div class="introduction">
             <h1>Authors</h1>
+            <p></p>
         </div>
         <div class="flexbook">
             <div class="bookCard" th:each="author : ${authors}">

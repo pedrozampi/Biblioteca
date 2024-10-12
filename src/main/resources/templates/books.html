@@ -11,27 +11,21 @@
 
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo">Biblioteca</a>
-            <ul class="nav-list">
-                <li><a href="/books">Livros</a></li>
-                <li>Autores</li>
-                <li><a href="/adm/registerbook">Sign in</a></li>
-                <li>Sobre</li>
-            </ul>
+        <nav th:replace="~{layouts/nav :: nav}">
         </nav>
     </header>
     <main>
         <div class="introduction">
             <h1>Books</h1>
+            <p>Book in our collection.</p>
         </div>
         <div class="flexbook">
             <div class="bookCard" th:each="book : ${books}">
-                <img src="https://picsum.photos/140" alt="wadaw">
+                <img src="https://picsum.photos/180" alt="wadaw">
                 <div class="content">
                     <div class="header-text">
                         <h3 th:text="${book.title}">Title</h3>
-                        <a th:href="@{/book/{id}(id=${book.id})}" id="btnBook">Acessar</a>
+                        <a th:href="@{/book/{id}(id=${book.id})}" id="btnBook">ACESSAR</a>
                         <a href="" th:text="${book.author}">Author</a>
                         <p th:text="${book.releaseDate}">releaseDate</p>
                     </div>

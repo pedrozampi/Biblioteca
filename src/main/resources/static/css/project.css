@@ -5,7 +5,19 @@
     --c2: #626F47;
     --c3: #FEFAE0;
     --c4: #F2EED7;
+    --c5: rgb(78, 61, 34);
 }
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--c4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--c5);
+  }
 
 *{
     margin: 0;
@@ -38,6 +50,8 @@ nav{
     align-items: center;
     background-color: #626F47;
     height: 8vh;
+    position: sticky;
+    top: 0;
 }
 
 .nav-list{

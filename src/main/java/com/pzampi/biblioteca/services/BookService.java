@@ -2,6 +2,7 @@ package com.pzampi.biblioteca.services;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,11 @@ public class BookService implements Serializable{
     public List<Book> findAll(){
         List<Book> list = bookRepositoy.findAll();
         return list;
+    }
+
+    public Book findById(Long id){
+        Optional<Book> obj = bookRepositoy.findById(id);
+        return obj.get();
     }
 
     public Book insert(Book obj){
