@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${publisher.name}">Document</title>
+    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav th:replace="~{layouts/nav :: nav}">
+        </nav>
+    </header>
+    <main>
+        <div class="contentBox">
+            <div class="mainblock">
+                <img src="https://picsum.photos/200/300" alt="">
+                <h1 th:text="${publisher.name}"></h1>
+                <p th:text="${publisher.address}"></p>
+            </div>
+            <div class="resume">
+                <p th:text="${publisher.about}"></p>
+
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

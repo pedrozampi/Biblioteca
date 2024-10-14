@@ -43,14 +43,14 @@ public class BookController {
     public String listBooks(Model model){
         Iterable<Book> books = bookService.findAll();
         model.addAttribute("books", books);
-        return "books";
+        return "book/books";
     }
 
     @GetMapping("/book/{id}")
     public String getBook(Model model, @PathVariable Long id){
         Book book = bookService.findById(id);
         model.addAttribute("book", book);
-        return "book";
+        return "book/book";
     }
 
 }

@@ -33,15 +33,20 @@ public class Book implements Serializable {
     @Lob
     private String resume;
 
+    @ManyToOne
+    @JoinColumn(name = "publisher_id", nullable = true)
+    private Publisher publisher;
+
     public Book() {
     }
 
-    public Book(Long id, String title, LocalDate releaseDate, Author author, String resume) {
+    public Book(Long id, String title, LocalDate releaseDate, Author author, String resume, Publisher publisher) {
         this.id = id;
         this.title = title;
         this.releaseDate = releaseDate;
         this.author = author;
         this.resume = resume;
+        this.publisher = publisher;
     }
 
     public Long getId() {
@@ -85,6 +90,14 @@ public class Book implements Serializable {
     }
 
     
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
     @Override
     public String toString() {

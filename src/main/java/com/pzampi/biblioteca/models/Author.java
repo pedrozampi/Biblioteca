@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -28,11 +30,15 @@ public class Author implements Serializable {
     @OneToMany(mappedBy = "author")
     private Set<Book> writtenBooks;
 
+    @ManyToOne
+    @JoinColumn(name = "publisher_id", nullable = true)
+    private Publisher publisher;
+
     public Author() {
     }
 
     public Author(Long id, String name, String bornIn, String language, LocalDate birthDate, LocalDate deathDate,
-            String biography) {
+            String biography, Publisher publisher) {
         this.id = id;
         this.name = name;
         this.bornIn = bornIn;
@@ -40,7 +46,7 @@ public class Author implements Serializable {
         this.birthDate = birthDate;
         this.deathDate = deathDate;
         this.biography = biography;
-        //this.writtenBooks = writtenBooks;
+        this.publisher = publisher;
     }
 
     public Long getId() {
@@ -99,7 +105,9 @@ public class Author implements Serializable {
         this.biography = biography;
     }
 
-   
+    public Set<Book> getWrittenBooks() {
+        return writtenBooks;
+    }
 
     @Override
     public int hashCode() {

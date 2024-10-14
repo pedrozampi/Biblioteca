@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${author.name}">Document</title>
+    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav th:replace="~{layouts/nav :: nav}">
+        </nav>
+    </header>
+    <main>
+        <div class="contentBox">
+            <div class="mainblock">
+                <img src="https://picsum.photos/200/300" alt="">
+                <h1 th:text="${author.name}"></h1>
+                <p class="dates" th:text="${#temporals.format(author.birthDate, 'dd/MM/yyyy')}"></p>
+                <p class="dates"> - </p>
+                <p class="dates" th:text="${#temporals.format(author.deathDate, 'dd/MM/yyyy')}"></p>
+            </div>
+            <div class="resume">
+                <p th:text="${author.biography}"></p>
+                <h2>Books of this author</h2>
+                <div class="books">
+                    
+                    <div class="eachBook"  th:each="book : ${author.writtenBooks}">
+                        <a th:href="@{/book/{id}(id=${book.id})}">
+                            <img src="https://picsum.photos/140" width="100%" height="60%" alt="">
+                        </a>
+                        <h3 th:text="${book.title}"></h3>
+                        <p th:text="${#temporals.format(book.releaseDate, 'dd/MM/yyyy')}"></p>
+                        <div class="resume">
+                            <p class="bookResume" th:text="${book.resume}"></p>
+                            <p ></p>
+                            <span>Publisher: </span><a id="publisherlink" th:unless="${book.publisher} == null" th:text="${book.publisher.name}" th:href="@{/publisher/{id}(id=${book.publisher.id})}">Publishers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

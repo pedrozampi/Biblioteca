@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav th:replace="~{layouts/nav :: nav}">
+        </nav>
+    </header>
+    <main>
+        <div class="introduction">
+            <h1>Publishers</h1>
+            <p></p>
+        </div>
+        <div class="flexbook">
+            <div class="bookCard" th:each="publisher : ${publishers}">
+                <img src="https://picsum.photos/140" alt="wadaw">
+                <div class="content">
+                    <div class="header-text">
+                        <h3 th:text="${publisher.name}">Title</h3>
+                        <a th:href="@{/publisher/{id}(id=${publisher.id})}" id="btnBook">Acessar</a>
+                        <span>Published books: </span><p th:text="${publisher.publishedTitles()}"></p>
+                        <span>Authors that work with: </span><p th:text="${publisher.authorPub()}"></p>
+
+                    </div>
+
+                </div>
+            </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

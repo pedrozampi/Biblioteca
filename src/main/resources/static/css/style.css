@@ -6,6 +6,10 @@
         font-size: 1px;
     }
 
+    .eachBook{
+        width: 40vw !important;
+    }
+
 }
 
 .introduction{
@@ -85,8 +89,14 @@ form button{
     }
     .bookCard .dates{
         display: inline;
+        font-size: 12px;
     }
 
+
+.dates{
+    display: inline;
+    font-size: 14px;
+}
 .header-text{
     background: var(--c3);
 }
@@ -108,19 +118,52 @@ form button{
 .contentBox{
     display: flex;
     margin: 4vh;
-    width: 85%;
+    height: 100vh;
+    position: absolute;
+    position: static;
 }
 
 .mainblock{
-    width: 20%;
-    margin-right: 2vw;
-    padding-right: 2vh;
+    flex: 10%;
+    padding-right: 10px;
 
 }
 .resume{
+    display: flexbox;
+    padding-left: 10px;
     margin-top: 2vh;
+    flex: 90%;
+}
+#publisherlink{
+    color: var(--c5);
+    position: relative;
 }
 
 .mainblock a{
     color: var(--c5);
+}
+
+.books{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.eachBook{
+    margin-right: 10px;
+    background: var(--c3);
+    width: 12vw;
+    height: 45vh;
+    overflow: hidden;
+    text-overflow: clip;
+}
+.eachBook p{
+    font-size: 12px;
+}
+
+.bookResume{
+    height: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
