@@ -28,9 +28,9 @@
                         <a th:href="@{/author/{id}(id=${author.id})}" id="btnBook">Acessar</a>
                         <p th:text="${author.bornIn}">releaseDate</p>
                         <p th:text="${author.language}">releaseDate</p>
-                        <p class="dates" th:text="${author.birthDate}">releaseDate</p>
+                        <p class="dates" th:text="${#temporals.format(author.birthDate, 'dd/MM/yyyy')}">releaseDate</p>
                         <p class="dates"> - </p>
-                        <p class="dates" th:text="${author.deathDate}">releaseDate</p>
+                        <p class="dates" th:text="${#temporals.format(author.deathDate, 'dd/MM/yyyy')}">releaseDate</p>
                     </div>
                     <div class="resume">
                         <p th:text="${author.biography}" class="resume">Resume</p>

@@ -106,14 +106,21 @@ form button{
 }
 
 .contentBox{
+    display: flex;
     margin: 4vh;
     width: 85%;
-}
-.contentBox a{
-    float: right;
 }
 
 .mainblock{
     width: 20%;
     margin-right: 2vw;
+    padding-right: 2vh;
+
+}
+.resume{
+    margin-top: 2vh;
+}
+
+.mainblock a{
+    color: var(--c5);
 }

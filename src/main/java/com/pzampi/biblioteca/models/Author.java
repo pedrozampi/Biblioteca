@@ -25,8 +25,8 @@ public class Author implements Serializable {
     private LocalDate birthDate, deathDate;
     private String biography;
 
-    //@OneToMany()
-    //private Set<Book> writtenBooks;
+    @OneToMany(mappedBy = "author")
+    private Set<Book> writtenBooks;
 
     public Author() {
     }

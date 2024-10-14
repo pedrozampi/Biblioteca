@@ -26,8 +26,8 @@
                     <div class="header-text">
                         <h3 th:text="${book.title}">Title</h3>
                         <a th:href="@{/book/{id}(id=${book.id})}" id="btnBook">ACESSAR</a>
-                        <a href="" th:text="${book.author}">Author</a>
-                        <p th:text="${book.releaseDate}">releaseDate</p>
+                        <a th:href="@{/author/{id}(id=${book.author.getId})}" th:text="${book.author.getName}">Author</a>
+                        <p th:text="${#temporals.format(book.releaseDate, 'dd/MM/yyyy')}">releaseDate</p>
                     </div>
                     <div class="resume">
                         <p th:text="${book.resume}" class="resume">Resume</p>
