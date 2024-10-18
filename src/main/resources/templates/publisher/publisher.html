@@ -23,7 +23,28 @@
             </div>
             <div class="resume">
                 <p th:text="${publisher.about}"></p>
+                <h2>Books published</h2>
+                <div class="books">
 
+                    <div class="eachBook" th:each="book : ${publisher.published}">
+                        <a href=""><img src="https://picsum.photos/140" alt=""></a>
+                        <h3 th:text="${book.title}"></h3>
+                        <p th:text="${#temporals.format(book.releaseDate, 'dd/MM/yyyy')}"></p>
+                        <div class="resume">
+                            <p class="bookResume" th:text="${book.resume}"></p>
+                        </div>
+                    </div>
+                </div>
+                <h2>Author who were published</h2>
+                <div class="authors">
+                    <div class="eachAuthor" th:each="author : ${publisher.authors}">
+                        <a href=""><img src="https://picsum.photos/140" alt=""></a>
+                        <h3 th:text="${author.name}"></h3>
+                        <p class="dates" th:text="${#temporals.format(author.birthDate, 'yyyy')}"></p>
+                        <p class="dates" th:text="${#temporals.format(author.deathDate, 'yyyy')}"></p>
+                        <p th:text="${author.bornIn}"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

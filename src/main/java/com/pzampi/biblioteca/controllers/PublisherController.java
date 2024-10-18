@@ -24,21 +24,6 @@ public class PublisherController {
     @Autowired
     private PublisherService publisherService;
 
-    @GetMapping("/adm/registerPublisher")
-    public String registerPublisher(Model model){
-        model.addAttribute("obj", new Publisher());
-        return "register/registerPublisher";
-    }
-
-    @PostMapping(path = "/adm/registerPublisher")
-    public String insert(@ModelAttribute Publisher Publisher, Model model){
-        System.out.println(Publisher.toString());
-        publisherService.insert(Publisher);
-        model.addAttribute("obj", new Publisher());
-        // return ResponseEntity.ok().body(obj.toString());
-        return "redirect:/";
-    }
-
     @GetMapping("/publishers")
     public String listPublishers(Model model){
         Iterable<Publisher> publishers = publisherService.findAll();

@@ -33,7 +33,7 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String user;
+    private String userName;
 
     @Convert(converter = StringEncryptorConverter.class)
     private String passwd;
@@ -62,6 +62,12 @@ public class User implements Serializable{
             return false;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", userName=" + userName + ", passwd=" + passwd + "]";
+    }
+    
     
 
 }

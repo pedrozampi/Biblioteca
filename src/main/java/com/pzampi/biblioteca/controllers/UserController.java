@@ -1,5 +1,6 @@
 package com.pzampi.biblioteca.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import com.pzampi.biblioteca.services.UserService;
 
 @Controller
 public class UserController{
-
+    @Autowired
     private UserService userService;
 
     @GetMapping("/signin")
@@ -23,9 +24,13 @@ public class UserController{
 
     @PostMapping(path = "/signin")
     public String insert(@ModelAttribute User user, Model model){
-        System.out.println(user.toString());
+        User Login = userService.signIn(user);
+        if(Login != null){
+            model.addAttribute("usr", Login);
+            return "register/adm-menu";
+        }
+        model.addAttribute("err", "User not found");
         model.addAttribute("usr", new User());
-        // return ResponseEntity.ok().body(obj.toString());
-        return "redirect:/";
+        return "signin";
     }
 }

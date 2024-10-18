@@ -12,10 +12,13 @@ import org.springframework.context.annotation.Profile;
 import com.pzampi.biblioteca.models.Author;
 import com.pzampi.biblioteca.models.Book;
 import com.pzampi.biblioteca.models.Publisher;
+import com.pzampi.biblioteca.models.User;
 import com.pzampi.biblioteca.repositories.AuthorRepository;
 import com.pzampi.biblioteca.repositories.BookRepository;
 import com.pzampi.biblioteca.repositories.PublisherRepository;
+import com.pzampi.biblioteca.repositories.UserRepository;
 import com.pzampi.biblioteca.services.BookService;
+import com.pzampi.biblioteca.services.UserService;
 
 @Configuration
 @Profile("test")
@@ -30,8 +33,16 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private PublisherRepository publisherRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public void run(String... args) throws Exception {
+
+        User u1 = new User(null, "adm", "0000");
+
+        userRepository.save(u1);
+
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         Publisher p1 = new Publisher(null, "Martin Claret", "rua tal, 150", "A publisher of books");

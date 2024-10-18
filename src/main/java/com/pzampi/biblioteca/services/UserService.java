@@ -1,6 +1,7 @@
 package com.pzampi.biblioteca.services;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,9 @@ public class UserService implements Serializable{
     private UserRepository userRepository;
 
     public User signIn(User usr){
-        User login = userRepository.findByUser(usr.getUser()).get();
-        if(usr.equals(login)) return login;
+        Optional<User> login = userRepository.findByUserName(usr.getUserName());
+        if(login.isEmpty()) return null;
+        if(usr.getUserName().contentEquals(login.get().getUserName()) && usr.getPasswd().contentEquals(login.get().getPasswd())) return login.get();
         else return null;
     }
 

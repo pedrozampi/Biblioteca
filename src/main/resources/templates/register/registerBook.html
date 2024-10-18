@@ -11,10 +11,12 @@
 
 <body>
     <header>
-        <nav th:replace="layouts/nav :: nav">
+        <nav th:replace="~{layouts/nav :: nav}">
         </nav>
     </header>
     <main>
+        <h1>dwada</h1>
+        
         <div class="formBox">
         <form action="#" th:action="@{/adm/registerbook}" th:object="${obj}" method="post">
             
@@ -24,11 +26,16 @@
                 </div>
                 <div class="formField">
                     <label for="author">Author </label>
-                    <input type="text" name="title" id="author" th:field="*{author}">
+                    <select required name="author" id="author" >
+                        <option th:each="author : ${authors}"
+                                th:value="${author.id}"
+                                th:text="${author.name}"></option>
+                    </select>
+                    <a href="/adm/registerauthor" class="addAuthor">+</a>
                 </div>
                 <div class="formField">
                     <label for="resume">Resume </label>
-                    <input type="text" name="title" id="resume" th:field="*{resume}">
+                    <textarea name="resume" id="resume" th:field="*{resume}"></textarea>
                 </div>
                 <div class="formField">
                     <label for="releasedate">Release date </label>

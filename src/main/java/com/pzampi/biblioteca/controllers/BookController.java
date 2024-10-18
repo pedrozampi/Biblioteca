@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.View;
 
 import com.pzampi.biblioteca.models.Book;
+import com.pzampi.biblioteca.services.AuthorService;
 import com.pzampi.biblioteca.services.BookService;
 
 @Controller
@@ -24,9 +25,13 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private AuthorService authorService;
+
     @GetMapping("/adm/registerbook")
     public String registerBook(Model model){
         model.addAttribute("obj", new Book());
+        model.addAttribute("authors", authorService.findAll());
         return "register/registerbook";
     }
 
@@ -35,7 +40,6 @@ public class BookController {
         System.out.println(book.toString());
         bookService.insert(book);
         model.addAttribute("obj", new Book());
-        // return ResponseEntity.ok().body(obj.toString());
         return "redirect:/";
     }
 

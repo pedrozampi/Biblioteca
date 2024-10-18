@@ -13,12 +13,15 @@
         </nav>
     </header>
     <main>
+        
         <div class="formBox">
             <form action="#" th:action="@{/signin}" th:object="${usr}" method="post">
-                
+                <div class="erromsg" th:unless="${err} == null">
+                    <span>Error: </span><p  th:text="${err}">daw</p>
+                </div>
                     <div class="formField">
                         <label for="userName">User </label>
-                        <input type="text" name="userName" id="userName" th:field="*{user}">
+                        <input type="text" name="userName" id="userName" th:field="*{userName}">
                     </div>
                     <div class="formField">
                         <label for="passwd">Password </label>
